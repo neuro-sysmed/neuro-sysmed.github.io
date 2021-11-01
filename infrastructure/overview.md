@@ -52,9 +52,9 @@ sbatch hpc_job.sh
 ```
 
 
+And example sbatch file:
 
-```simple test-job:
-
+```
 #!/bin/bash
 #SBATCH --job-name=test_job
 #SBATCH --time=2:00                     # max runtime
@@ -70,7 +70,6 @@ date
 sleep 60
 hostname
 date
-
 
 ```
 
