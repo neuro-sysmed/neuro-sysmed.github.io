@@ -37,17 +37,21 @@ All groups have access to a slurm instance. There are 4 different queues defined
 # See HPC status 
 sinfo
 
-# list queue
-squeue
-
-# detailed job info
-sacct
-
 # Submit a job 
 sbatch hpc_job.sh
 
 # Oneliner:
   sbatch  -p debug --wrap "samtools index sample.bam "
+
+# list job queue
+squeue
+
+# detailed job info
+sacct
+
+# Job information 
+scontol show job <JOBID>
+
 
 ```
 
@@ -76,7 +80,7 @@ date
 For all options see here: https://slurm.schedmd.com/sbatch.html
 
 
-## modules (lmod)
+## Modules (lmod)
 
 To provide different version of research software we use the modules environment extensively. Loading a module establishes the environment required to find the related include and library files at compile-time and run-time.
 
