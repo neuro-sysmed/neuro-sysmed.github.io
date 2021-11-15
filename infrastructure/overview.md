@@ -15,10 +15,11 @@ Temporary research data should be stored in /scratch/**group**/. Here each user 
 
 
 
-|Path               | Filesystem  |Approximate Size  | Backup | Comments |
-|  ~/               | NFS4        | 20GB/user        | Yes    | Personal code and results      |
-|/data/**group**    | NFS3        |  5BP             | Yes    | Raw and final results for research          |
-|/scratch/**group** | NFS3        |  5BP             | No     | For temporary storage of data for active jobs   |
+|Path                | Filesystem  |Approximate Size  | Backup | Comments                                        |
+|  ~/                | NFS4        | 20GB/user        | Yes    | Personal code and results                       |
+|/data/**group**/REC | NFS3        |  5BP             | Yes    | Raw and final results for research              |
+|/scratch/**group**/ | NFS3        |  5BP             | No     | For temporary storage of data for active jobs   |
+
 
 ## Slurm 
 
@@ -41,7 +42,7 @@ sinfo
 sbatch hpc_job.sh
 
 # Oneliner:
-  sbatch  -p debug --wrap "samtools index sample.bam "
+  sbatch  -p small --wrap "samtools index sample.bam "
 
 # list job queue
 squeue
@@ -76,6 +77,16 @@ hostname
 date
 
 ```
+
+It is possible to change outfiles names (as show above) in various ways eg:
+
++ **%j** : jobid of the running job.
++ **%J** : jobid.stepid of the running job. (e.g. "128.0")
++ **%s** : stepid of the running job.
++ **%u** : User name.
++ **%x** : Job name.
+
+
 
 For all options see here: https://slurm.schedmd.com/sbatch.html
 
